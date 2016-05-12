@@ -1,0 +1,19 @@
+- hosts: controller
+  remote_user: heat-admin
+  gather_facts: false
+  vars:
+    ansible_become: true
+    driver: openvswitch
+  roles:
+  - neutron-firewall
+
+- hosts: compute
+  remote_user: heat-admin
+  gather_facts: false
+  vars:
+    ansible_become: true
+    driver: openvswitch
+  roles:
+  -  neutron-firewall
+
+
